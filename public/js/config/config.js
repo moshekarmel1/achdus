@@ -19,10 +19,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('posts', {
         url: '/posts/{id}',
         templateUrl: '/views/posts.html',
-        controller: 'PostsCtrl',
+        controller: 'EventsCtrl',
         resolve: {
-            post: ['$stateParams', 'posts', function($stateParams, posts) {
-                return posts.get($stateParams.id);
+            post: ['$stateParams', 'events', function($stateParams, events) {
+                return events.get($stateParams.id);
             }]
         }
     })

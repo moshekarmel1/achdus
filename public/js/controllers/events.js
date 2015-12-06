@@ -1,5 +1,5 @@
 var app = angular.module('achdus');
-app.controller('PostsCtrl', ['$scope', 'events', 'event', 'auth', function($scope, events, event, auth){
+app.controller('EventsCtrl', ['$scope', 'events', 'event', 'auth', function($scope, events, event, auth){
     $scope.isLoggedIn = auth.isLoggedIn;
     /*$scope.event = event;
     $scope.edit = false;

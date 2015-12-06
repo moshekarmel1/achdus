@@ -2,7 +2,7 @@ var app = angular.module('achdus');
 app.controller('MainCtrl', ['$scope', 'events', 'auth', '$window', function($scope, events, auth, $window){
     $scope.isLoggedIn = auth.isLoggedIn;
     $scope.currentUser = auth.currentUser;
-    /*$scope.posts = posts.posts;
+    $scope.events = events.events;
 
     $scope.order = '-upvotes';
 
@@ -13,7 +13,7 @@ app.controller('MainCtrl', ['$scope', 'events', 'auth', '$window', function($sco
     $scope.add = function(){
         $window.location.href = '/#/add';
     };
-
+    /*
     $scope.addPost = function(){
         if(!$scope.title || $scope.title === '') {
             return;
