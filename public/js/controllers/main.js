@@ -1,5 +1,5 @@
-var app = angular.module('parnassah');
-app.controller('MainCtrl', ['$scope', 'posts', 'auth', '$window', function($scope, posts, auth, $window){
+var app = angular.module('achdus');
+app.controller('MainCtrl', ['$scope', 'events', 'auth', '$window', function($scope, events, auth, $window){
     $scope.isLoggedIn = auth.isLoggedIn;
     $scope.posts = posts.posts;
 

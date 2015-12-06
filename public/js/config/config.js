@@ -1,4 +1,4 @@
-var app = angular.module('parnassah');
+var app = angular.module('achdus');
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('home', {
@@ -6,8 +6,8 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         templateUrl: '/views/home.html',
         controller: 'MainCtrl',
         resolve: {
-            postPromise: ['posts', function(posts){
-                return posts.getAll();
+            postPromise: ['events', function(events){
+                return events.getAll();
             }]
         }
     })
