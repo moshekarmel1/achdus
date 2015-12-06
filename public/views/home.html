@@ -1,0 +1,51 @@
+<div class="page-header page-heading">
+  <h1 class="pull-left hidden-xs hidden-sm">Parnassah Ideas</h1>
+  <h4 class="pull-left hidden-md hidden-lg">Parnassah Ideas</h4>
+  <ol class="nav nav-pills pull-right">
+    <li ng-class="{'active': order=='-posted'}"><a href="#" ng-click="setOrder('-posted')">
+      <span class="glyphicon glyphicon-time"></span><span class="hidden-xs hidden-sm"> Date Posted</span></a>
+    </li>
+    <li ng-class="{'active': order=='-upvotes'}"><a href="#" ng-click="setOrder('-upvotes')">
+      <span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs hidden-sm"> Upvotes</span></a>
+    </li>
+  </ol>
+  <div class="clearfix"></div>
+</div>
+<div ng-show="error" class="alert alert-warning alert-dismissible row" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Sorry</strong> {{error.message}}
+</div>
+<button ng-show="isLoggedIn()" type="button" class="btn btn-primary btn-md pull-right" ng-click="add()">
+  <span class="glyphicon glyphicon-plus"></span><span class="hidden-xs hidden-sm"> Add</span>
+</button>
+<div ng-hide="isLoggedIn()">
+  <h5>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h5>
+</div>
+<table class="table forum table-striped">
+  <thead>
+    <tr>
+      <th class="cell-stat text-center"><span class="glyphicon glyphicon-thumbs-up"></span><span class="hidden-xs hidden-sm"> Upvotes</span></th>
+      <th class="cell-stat"><span class="glyphicon glyphicon-bullhorn"></span><span class="hidden-xs hidden-sm"> Title</span></th>
+      <th class="cell-stat text-center hidden-xs hidden-sm">
+        <span class="glyphicon glyphicon-comment"></span><span class="hidden-xs hidden-sm"> Comments</span>
+      </th>
+      <th class="cell-stat text-center hidden-xs hidden-sm">
+        <span class="glyphicon glyphicon-user"></span><span class="hidden-xs hidden-sm"> By</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="post in posts | orderBy:order">
+      <td class="text-center">
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span> {{post.upvotes}}
+      </td>
+      <td>
+        <h4><a href="#/posts/{{post._id}}">{{post.title}}</a><br><small class="hidden-xs hidden-sm">{{post.postBody.substring(0,50) + '...'}}</small></h4>
+      </td>
+      <td class="text-center hidden-xs hidden-sm"><a href="#">{{post.comments.length}}</a></td>
+      <td class="text-center hidden-xs hidden-sm"><a href="#">{{post.author}}</a> 
+        <span title="{{post.posted | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a'}}" am-time-ago="post.posted"></span>
+      </a></td>
+    </tr>
+  </tbody>
+</table>

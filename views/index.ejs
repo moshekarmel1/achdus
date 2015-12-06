@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parnassah!</title>
+    <meta name="description" content="A forum for innovative parnassah ideas that can help the community.">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="fragment" content="!">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <meta name="keywords" content="Parnassah, parnassa, parnasah, parnasah">
+
+    <meta property="og:description" content="A forum for innovative parnassah ideas that can help the community.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Parnassah!">
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <style> .glyphicon-thumbs-up { cursor:pointer } </style>
+  </head>
+  <body ng-app="parnassah" ng-controller="MainCtrl">
+    <nav class="navbar navbar-default" ng-controller="NavCtrl">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#/home"><span class="glyphicon glyphicon-home"></span> Parnassah</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li ng-show="isLoggedIn()"><a><span class="glyphicon glyphicon-user"></span> {{currentUser()}}</a></li>
+              <li ng-show="isLoggedIn()"><a href="#" ng-click="logOut()"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+              <li ng-hide="isLoggedIn()"><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
+              <li ng-hide="isLoggedIn()"><a href="/#/register"><span class="glyphicon glyphicon-new-window"></span> Register</a></li>
+            </ul>
+           </div> 
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+    <div class="container">  
+      <div class="row">
+        <div class="col-md-12">
+          <ui-view></ui-view>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <p class="text-muted">&copy; <a href="https://plus.google.com/u/0/110787292520380975970" rel="me">Moshe Karmel</a> 2015</p>
+        </div>
+      </div>
+    </footer>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js"></script>
+      <!-- Moment JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+      <!-- load angular-moment -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+      <script src="/js/angularApp.js"></script>
+      <script src="/js/factories/postsFactory.js"></script>
+      <script src="/js/factories/authFactory.js"></script>
+      <script src="/js/config/config.js"></script>
+      <script src="/js/controllers/main.js"></script>
+      <script src="/js/controllers/posts.js"></script>
+      <script src="/js/controllers/nav.js"></script>
+      <script src="/js/controllers/auth.js"></script>
+
+      <!-- jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <!-- Bootstrap JS -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+      
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-70994718-1', 'auto');
+        ga('send', 'pageview');
+
+      </script>
+  </body>
+</html>
