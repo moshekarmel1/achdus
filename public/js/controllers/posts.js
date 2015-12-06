@@ -1,9 +1,8 @@
-var app = angular.module('parnassah');
-app.controller('PostsCtrl', ['$scope', 'posts', 'post', 'auth', function($scope, posts, post, auth){
+var app = angular.module('achdus');
+app.controller('PostsCtrl', ['$scope', 'events', 'event', 'auth', function($scope, events, event, auth){
     $scope.isLoggedIn = auth.isLoggedIn;
-    $scope.post = post;
+    /*$scope.event = event;
     $scope.edit = false;
-    $scope.updatedVersion = post.postBody;
     $scope.currentUser = auth.currentUser;
 
     $scope.order = '-upvotes';
@@ -17,19 +16,17 @@ app.controller('PostsCtrl', ['$scope', 'posts', 'post', 'auth', function($scope,
     };
 
     $scope.save = function(){
-        if($scope.updatedVersion !== $scope.post.postBody){
-            posts.update(post._id, {
-                postBody: $scope.updatedVersion
-            }).success(function(data){
-                $scope.post.postBody = data.postBody;
-                $scope.updatedVersion = data.postBody;
-                $scope.edit = false;
-            });
-        }
+        events.update(event._id, {
+            postBody: $scope.updatedVersion
+        }).success(function(data){
+            $scope.post.postBody = data.postBody;
+            $scope.updatedVersion = data.postBody;
+            $scope.edit = false;
+        });
     };
 
     $scope.addComment = function(){
-        if($scope.body === '' || !auth.isLoggedIn()) { 
+        if($scope.body === '' || !auth.isLoggedIn()) {
             return;
         }
         posts.addComment(post._id, {
@@ -53,5 +50,5 @@ app.controller('PostsCtrl', ['$scope', 'posts', 'post', 'auth', function($scope,
         posts.upvoteComment(post, comment).error(function(error){
             $scope.error = error;
         });
-    };
+    };*/
 }]);

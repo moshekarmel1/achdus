@@ -1,4 +1,4 @@
-var app = angular.module('parnassah');
+var app = angular.module('achdus');
 app.factory('events', ['$http', 'auth', '$window', function($http, auth, $window){
     var o = {
         events: []

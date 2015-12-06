@@ -1,4 +1,4 @@
-var app = angular.module('parnassah');
+var app = angular.module('achdus');
 app.controller('NavCtrl', ['$scope', 'auth', function($scope, auth){
     $scope.isLoggedIn = auth.isLoggedIn;
     $scope.currentUser = auth.currentUser;

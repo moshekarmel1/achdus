@@ -1,4 +1,4 @@
-var app = angular.module('parnassah');
+var app = angular.module('achdus');
 app.controller('AuthCtrl', ['$scope', '$state', 'auth', function($scope, $state, auth){
     $scope.user = {};
 

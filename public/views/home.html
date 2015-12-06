@@ -1,6 +1,6 @@
 <div class="page-header page-heading">
-  <h1 class="pull-left hidden-xs hidden-sm">Parnassah Ideas</h1>
-  <h4 class="pull-left hidden-md hidden-lg">Parnassah Ideas</h4>
+  <h1 class="pull-left hidden-xs hidden-sm">Achdus</h1>
+  <h4 class="pull-left hidden-md hidden-lg">Achdus</h4>
   <ol class="nav nav-pills pull-right">
     <li ng-class="{'active': order=='-posted'}"><a href="#" ng-click="setOrder('-posted')">
       <span class="glyphicon glyphicon-time"></span><span class="hidden-xs hidden-sm"> Date Posted</span></a>
@@ -35,15 +35,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="post in posts | orderBy:order">
+    <tr ng-repeat="event in events | orderBy:order">
       <td class="text-center">
-        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span> {{post.upvotes}}
+        <span class="glyphicon glyphicon-thumbs-up" ng-click="incrementUpvotes(post)"></span> {{event.upvotes}}
       </td>
       <td>
-        <h4><a href="#/posts/{{post._id}}">{{post.title}}</a><br><small class="hidden-xs hidden-sm">{{post.postBody.substring(0,50) + '...'}}</small></h4>
+        <h4><a href="#/posts/{{post._id}}">{{event.title}}</a><br><small class="hidden-xs hidden-sm">{{event.postBody.substring(0,50) + '...'}}</small></h4>
       </td>
-      <td class="text-center hidden-xs hidden-sm"><a href="#">{{post.comments.length}}</a></td>
-      <td class="text-center hidden-xs hidden-sm"><a href="#">{{post.author}}</a> 
+      <td class="text-center hidden-xs hidden-sm"><a href="#">{{event.comments.length}}</a></td>
+      <td class="text-center hidden-xs hidden-sm"><a href="#">{{event.author}}</a>
         <span title="{{post.posted | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a'}}" am-time-ago="post.posted"></span>
       </a></td>
     </tr>

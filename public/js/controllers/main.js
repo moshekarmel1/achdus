@@ -1,7 +1,8 @@
 var app = angular.module('achdus');
 app.controller('MainCtrl', ['$scope', 'events', 'auth', '$window', function($scope, events, auth, $window){
     $scope.isLoggedIn = auth.isLoggedIn;
-    $scope.posts = posts.posts;
+    $scope.currentUser = auth.currentUser;
+    /*$scope.posts = posts.posts;
 
     $scope.order = '-upvotes';
 
@@ -34,5 +35,5 @@ app.controller('MainCtrl', ['$scope', 'events', 'auth', '$window', function($sco
         posts.upvote(post).error(function(error){
             $scope.error = error;
         });
-    };
+    };*/
 }]);
