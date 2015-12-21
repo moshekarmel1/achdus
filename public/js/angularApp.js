@@ -1,1 +1,1 @@
-var app = angular.module('achdus', ['ui.router', 'angularMoment']);
+var app = angular.module('tag', ['ui.router', 'angularMoment']);
