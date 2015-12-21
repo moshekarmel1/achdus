@@ -3,11 +3,11 @@ app.factory('auth', ['$http', '$window', function($http, $window){
     var auth = {};
     //save jwt token in local storage
     auth.saveToken = function (token){
-        $window.localStorage['achus-token'] = token;
+        $window.localStorage['tag-token'] = token;
     };
     //get jwt token from local storage
     auth.getToken = function (){
-        return $window.localStorage['achdus-token'];
+        return $window.localStorage['tag-token'];
     }
     //is the user logged in?
     auth.isLoggedIn = function(){
@@ -41,7 +41,7 @@ app.factory('auth', ['$http', '$window', function($http, $window){
     };
 
     auth.logOut = function(){
-        $window.localStorage.removeItem('achdus-token');
+        $window.localStorage.removeItem('tag-token');
     };
 
     return auth;

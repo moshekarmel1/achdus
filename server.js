@@ -1,5 +1,5 @@
 var app = require('./config/app');
-var debug = require('debug')('parnassah-app:server');
+var debug = require('debug')('tag-app:server');
 var http = require('http');
 
 /**
