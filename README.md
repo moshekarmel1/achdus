@@ -1,2 +1,2 @@
-# achdus
-App to join jews together in prayer and study.
+# TAG Whitelist
+App to store url configurations for whitelisting things.
