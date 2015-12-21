@@ -12,3 +12,6 @@
 <div ng-hide="isLoggedIn()">
   <h5>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add stuff.</h5>
 </div>
+<label>Whitelist</label>
+<input type="text" class="form-control" ng-model="search" /><br />
+<button class="btn btn-default" ng-click="getMatch()"><span class="glyphicon glyphicon-search"></span> Search</button>

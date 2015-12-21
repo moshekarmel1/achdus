@@ -10,5 +10,11 @@ app.factory('urls', ['$http', 'auth', '$window', function($http, auth, $window){
         });
     };
 
+    o.get = function(name) {
+        return $http.get('/urls/' + name).then(function(res){
+            return res.data;
+        });
+    };
+
     return o;
 }]);

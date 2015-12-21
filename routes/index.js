@@ -39,6 +39,23 @@ router.post('/login', function(req, res, next){
         }
     })(req, res, next);
 });
+//name param
+router.param('name', function(req, res, next, name) {
+    Url.findOne({name: new RegExp('^'+name+'$', 'i')}, function (err, url){
+        if (err) {
+            return next(err);
+        }
+        if (!assignment) {
+            return next(new Error('can\'t find url'));
+        }
+        req.url = url;
+        return next();
+    });
+});
+//get post with param id
+router.get('/urls/:name', function(req, res, next) {
+    res.json(req.url);
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
