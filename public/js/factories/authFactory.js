@@ -1,4 +1,4 @@
-var app = angular.module('achdus');
+var app = angular.module('tag');
 app.factory('auth', ['$http', '$window', function($http, $window){
     var auth = {};
     //save jwt token in local storage

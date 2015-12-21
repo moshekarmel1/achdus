@@ -1,4 +1,4 @@
-var app = angular.module('achdus');
+var app = angular.module('tag');
 app.controller('AuthCtrl', ['$scope', '$state', 'auth', function($scope, $state, auth){
     $scope.user = {};
 

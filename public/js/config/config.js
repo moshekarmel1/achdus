@@ -1,4 +1,4 @@
-var app = angular.module('achdus');
+var app = angular.module('tag');
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
     $stateProvider
     .state('home', {
@@ -19,7 +19,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('posts', {
         url: '/posts/{id}',
         templateUrl: '/views/posts.html',
-        controller: 'EventsCtrl',
+        controller: 'WhitelistCtrl',
         resolve: {
             post: ['$stateParams', 'events', function($stateParams, events) {
                 return events.get($stateParams.id);
