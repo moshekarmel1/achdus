@@ -4,14 +4,19 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('home', {
         url: '/home',
         templateUrl: '/views/home.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        resolve: {
+            postPromise: ['urls', function(urls){
+                return urls.getAll();
+            }]
+        }
     })
     .state('add', {
         url: '/add',
         templateUrl: '/views/add.html',
         controller: 'MainCtrl'
     })
-    .state('urls', {
+    /*.state('urls', {
         url: '/urls/{name}',
         templateUrl: '/views/url.html',
         controller: 'WhitelistCtrl',
@@ -20,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 return urls.getURLs($stateParams.name);
             }]
         }
-    })
+    })*/
     .state('login', {
         url: '/login',
         templateUrl: '/views/login.html',

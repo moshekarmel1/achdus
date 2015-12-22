@@ -40,6 +40,15 @@ router.post('/login', function(req, res, next){
         }
     })(req, res, next);
 });
+//route to get all urls
+router.get('/urls', function(req, res, next) {
+    Url.find(function(err, urls){
+        if(err){
+            return next(err);
+        }
+        res.json(urls);
+    });
+});
 //name param
 router.param('name', function(req, res, next, name) {
     Url.findOne({name: new RegExp('^'+name+'$', 'i')}, function (err, url){
@@ -59,7 +68,7 @@ router.get('/urls/:name', function(req, res, next) {
     res.json(req.url);
 });
 //post with param id
-router.post('/urls/', function(req, res, next) {
+router.post('/urls', function(req, res, next) {
     var url = new Url(req.body);
     url.save(function(err, url){
         if(err){

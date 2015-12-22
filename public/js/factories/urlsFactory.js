@@ -23,8 +23,10 @@ app.factory('urls', ['$http', 'auth', '$window', function($http, auth, $window){
             headers: {
                 Authorization: 'Bearer ' + auth.getToken()
             }
-        }).success(function(data){
-            console.log(data);
+        }).then(function(data){
+            return data;
+        }, function(err){
+            return err;
         });
     };
 
