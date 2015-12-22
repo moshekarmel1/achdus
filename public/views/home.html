@@ -15,3 +15,9 @@
 <label>Whitelist</label>
 <input type="text" class="form-control" ng-model="search" /><br />
 <button class="btn btn-default" ng-click="getMatch()"><span class="glyphicon glyphicon-search"></span> Search</button>
+<hr />
+<ul>
+  <li ng-repeat="url in urls">
+    {{url}}
+  </li>
+</ul>

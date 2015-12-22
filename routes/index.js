@@ -47,8 +47,9 @@ router.param('name', function(req, res, next, name) {
             return next(err);
         }
         if (!url) {
-            return next(new Error('can\'t find url'));
+            return res.status(400).json({message: 'Nothing with that name here...'});
         }
+        console.log(url);
         req.url = url;
         return next();
     });
@@ -56,6 +57,16 @@ router.param('name', function(req, res, next, name) {
 //get post with param id
 router.get('/urls/:name', function(req, res, next) {
     res.json(req.url);
+});
+//post with param id
+router.post('/urls/', function(req, res, next) {
+    var url = new Url(req.body);
+    url.save(function(err, url){
+        if(err){
+            return next(err);
+        }
+        res.json(url);
+    });
 });
 
 /* GET home page. */
