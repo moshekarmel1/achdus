@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var passport = require('passport');
 var User = mongoose.model('User');
+var Url = mongoose.model('Url');
 var jwt = require('express-jwt');
 //authentication middleware
 var auth = jwt({
@@ -45,7 +46,7 @@ router.param('name', function(req, res, next, name) {
         if (err) {
             return next(err);
         }
-        if (!assignment) {
+        if (!url) {
             return next(new Error('can\'t find url'));
         }
         req.url = url;

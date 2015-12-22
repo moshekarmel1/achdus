@@ -8,6 +8,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 //include models
 require('../models/Users');
+require('../models/Urls');
 //include passport config
 require('../config/passport');
 

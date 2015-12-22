@@ -13,7 +13,7 @@ app.controller('MainCtrl', ['$scope', 'urls', 'auth', '$window', function($scope
             return;
         }
     	urls.getURLs($scope.search).success(function(data){
-    		
+    		console.log(data);
     	});
     };
 }]);
